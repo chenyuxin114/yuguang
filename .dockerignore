@@ -1,0 +1,9 @@
+data/
+shots/
+.ssh/
+screenshots/
+node_modules/
+.git/
+.gitignore
+*.log
+*.zip

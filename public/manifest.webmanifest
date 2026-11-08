@@ -1,0 +1,21 @@
+{
+  "name": "予光 YUGUANG",
+  "short_name": "予光",
+  "description": "让账单遇见善意。随机接住一张账单，每周更新富人榜。",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f2ede2",
+  "theme_color": "#f2ede2",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>予光 · 审核后台</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <a class="wordmark" href="/" aria-label="返回予光首页">
+      <span class="wordmark__mark"><svg class="icon"><use href="#i-mark"></use></svg></span>
+      <span class="wordmark__type">予光<small>YUGUANG</small></span>
+    </a>
+    <div class="admin-header__right">
+      <span class="admin-header__label">MODERATION</span>
+      <a class="admin-back" href="/">返回前台</a>
+    </div>
+  </header>
+
+  <main class="admin-shell">
+    <section class="admin-gate" id="adminGate">
+      <p class="eyebrow"><span class="live-dot"></span> 内容审核后台</p>
+      <h1>先确认，<br>你有这盏灯的钥匙。</h1>
+      <p class="admin-gate__copy">输入服务端配置的 <code>ADMIN_TOKEN</code>。口令只保存在当前标签页，不会写入浏览器持久存储。</p>
+      <form id="adminLogin" class="admin-login">
+        <label for="adminToken">审核口令</label>
+        <input id="adminToken" type="password" autocomplete="current-password" placeholder="ADMIN_TOKEN">
+        <button class="btn btn--ink" type="submit">进入审核台</button>
+        <p class="field-error" id="adminError" role="alert"></p>
+      </form>
+      <p class="admin-gate__hint">未配置 <code>ADMIN_TOKEN</code> 时，后台默认关闭。公开体验环境请勿使用弱口令。</p>
+    </section>
+
+    <section id="adminPanel" class="admin-panel" hidden>
+      <div class="admin-title-row">
+        <div>
+          <p class="eyebrow"><span class="live-dot"></span> MODERATION DESK</p>
+          <h1>审核台</h1>
+          <p class="admin-subtitle">举报、隐藏和删除都会实时同步到前台。所有操作请留痕。</p>
+        </div>
+        <div class="admin-title-actions">
+          <button class="btn btn--ghost btn--sm" id="adminRefresh" type="button">刷新</button>
+          <button class="btn btn--ghost btn--sm" id="adminLogout" type="button">退出后台</button>
+        </div>
+      </div>
+
+      <div class="admin-stats" id="adminStats"></div>
+
+      <div class="admin-toolbar">
+        <div class="admin-tabs" role="tablist" aria-label="审核分类">
+          <button class="admin-tab is-active" type="button" data-tab="open">待处理举报 <span id="openCount">0</span></button>
+          <button class="admin-tab" type="button" data-tab="hidden">已隐藏账单 <span id="hiddenCount">0</span></button>
+          <button class="admin-tab" type="button" data-tab="resolved">已处理</button>
+        </div>
+        <span class="admin-sync" id="adminSync">连接中</span>
+      </div>
+
+      <div id="adminContent" class="admin-content"></div>
+    </section>
+  </main>
+
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-mark" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4.2"></circle>
+      <path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"></path>
+    </symbol>
+  </svg>
+  <div id="adminToast" class="toast-root" role="status" aria-live="polite"></div>
+  <script src="/admin.js" defer></script>
+</body>
+</html>

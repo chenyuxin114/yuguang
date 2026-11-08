@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: yuguang
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/public
+    envVars:
+      - key: PUBLIC_MODE
+        value: "1"
+      - key: ADMIN_TOKEN
+        generateValue: true
+      - key: NODE_ENV
+        value: production
